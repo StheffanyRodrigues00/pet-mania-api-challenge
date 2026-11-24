@@ -2,11 +2,12 @@ package com.dt2.petmania.controllers;
 
 import com.dt2.petmania.entities.Pet;
 import com.dt2.petmania.repositories.PetRepository;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMaping
-@RestController("api/pets")
+@RequestMapping("api/pets")
+@RestController
 public class PetController {
 
     private final PetRepository repository;
@@ -16,7 +17,7 @@ public class PetController {
 
     @PostMapping
     public List<Pet> mostrar(){
-        return repository.findById();
+        return repository.findAll();
     }
     @GetMapping
     public void criar(@RequestBody Pet p){
